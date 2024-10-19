@@ -8,19 +8,22 @@ const EmployeeList = () => {
 
   return (
     <div className="container">
-      {employees.length === 0 && <NoData />}
-      <table className="table table-hover text-center">
-        <thead>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Email</th>
-        </thead>
-        <tbody>
-          {employees.map((emp) => (
-            <Employees emp={emp} key={emp.id} />
-          ))}
-        </tbody>
-      </table>
+      {employees.length === 0 ? (
+        <NoData />
+      ) : (
+        <table className="table table-hover text-center">
+          <thead>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+          </thead>
+          <tbody>
+            {employees.map((emp) => (
+              <Employees emp={emp} key={emp.id} />
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
